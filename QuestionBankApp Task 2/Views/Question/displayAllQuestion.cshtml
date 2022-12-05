@@ -1,0 +1,32 @@
+﻿@model List<QuestionBankApp.Models.Question_Table1>
+
+@{
+    ViewBag.Title = "displayAllQuestion";
+}
+<style>
+    h2{
+        text-align:center;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+</style>
+<h2>ALL QUESTIONS</h2>
+
+<div class="container">
+    @foreach (var ques in Model)
+    {
+        <div class="row">
+            <hr />
+            <p>
+                <h4>@ques.QuestionId. @ques.Question ?</h4>
+                <h5>i.@ques.Option1  </h5>
+                <h5>ii.@ques.Option2 </h5>
+                <h5>iii.@ques.Option3 </h5>
+                <h5>iv.@ques.Option4</h5>
+            </p>
+            @Html.ActionLink("Select Question", "Add", new { id = ques.QuestionId }, new { @class = "btn btn-primary mt-3" })
+            @Html.ActionLink("Edit Question", "Edit", new { id = ques.QuestionId }, new { @class = "btn btn-primary mt-3" })
+           
+            <hr />
+        </div>
+    }
+</div>

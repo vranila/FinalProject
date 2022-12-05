@@ -1,0 +1,23 @@
+	SQL COMMAND--QuestionTable1
+--------------------------------
+CREATE TABLE [dbo].[Question_Table1] (
+    [QuestionId]  INT           IDENTITY (1, 1) NOT NULL,
+    [Question]    VARCHAR (MAX) NOT NULL,
+    [Keyword]     VARCHAR (MAX) NOT NULL,
+    [SubjectType] INT           NOT NULL,
+    [Option1]     VARCHAR (MAX) NULL,
+    [Option2]     VARCHAR (MAX) NULL,
+    [Option3]     VARCHAR (MAX) NULL,
+    [Option4]     VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([QuestionId] ASC),
+    CONSTRAINT [FK_Question_Table1_SubjectTable1] FOREIGN KEY ([SubjectType]) REFERENCES [dbo].[SubjectTable1] ([subjectId])
+);
+
+	SQL COMMAND--SubjectTable1
+----------------------------------
+CREATE TABLE [dbo].[SubjectTable1] (
+    [subjectId] INT           IDENTITY (1, 1) NOT NULL,
+    [Subject]   NVARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_Table] PRIMARY KEY CLUSTERED ([subjectId] ASC),
+    UNIQUE NONCLUSTERED ([subjectId] ASC)
+);

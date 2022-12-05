@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    h2{
+      text-align:center;   
+    }
+    .link{
+        padding-left:32%;
+    }
+
+</style>
+<h2>MCQ TYPE QUESTION BANK</h2>
+<br/>
+<div class="link">
+    @Html.ActionLink("Add Question", "Add", null, new {@class="btn btn-outline-dark"})
+
+    @Html.ActionLink("View Questions", "displayAllQuestion", null, new { @class = "btn btn-outline-dark" })
+
+    @Html.ActionLink("Search Question", "SearchByKeyWord", null, new { @class = "btn btn-outline-dark" })
+</div>
+<div class="image">
+
+</div>
+
+

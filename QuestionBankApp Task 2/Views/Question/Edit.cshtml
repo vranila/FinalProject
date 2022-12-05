@@ -1,0 +1,39 @@
+﻿@model QuestionBankApp.Models.Question_Table1
+
+@{
+    ViewBag.Title = "Edit";
+    var data = ViewBag.SubjectType as List<SelectListItem>;
+}
+<style>
+    h2{
+        text-align:center;
+    }
+    #que{
+        font-weight:bold;
+    }
+</style>
+
+<h2>EDIT QUESTION</h2>
+<div class="container">
+    @using (Html.BeginForm("UpdateQuestion", "Question"))
+    {
+        <div class="row">
+            <label id="que">Question ID: @Html.DisplayFor(m => m.QuestionId)@Html.HiddenFor(m => m.QuestionId)</label>
+            <label>Enter the Question:</label><br />
+            @Html.EditorFor(m => m.Question)<br />
+            <label>Enter the Keyword of Questions:</label>
+            @Html.EditorFor(m => m.Keyword)<br />
+            <label>Enter the Subject Type:</label>
+            @Html.DropDownListFor(m => m.SubjectType, data)<br />
+            <label>Enter the Option1:</label><br />
+            @Html.EditorFor(m => m.Option1)<br />
+            <label>Enter the Option2:</label><br />
+            @Html.EditorFor(m => m.Option2)<br />
+            <label>Enter the Option3:</label><br />
+            @Html.EditorFor(m => m.Option3)<br />
+            <label>Enter the Option4:</label><br />
+            @Html.EditorFor(m => m.Option4)<br />
+            <button class="btn btn-primary mt-3">Update Question</button>
+        </div>
+    }
+</div>
