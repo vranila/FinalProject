@@ -1,0 +1,83 @@
+﻿@model BlogTask.DataModels.UserDetailsVN
+
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<style>
+    .container {
+        height: 750px;
+        width: 300px;
+        background-color:honeydew;
+        color:brown;
+        border-radius: 20px;
+    }
+    .register {
+        color: brown;
+    }
+</style>
+<div class="register">
+    <h2>SIGN UP HERE</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-15">
+            @using (Html.BeginForm())
+            {
+                <div style="color:red">
+                    @Html.ValidationSummary()
+                </div>
+                <label class="lb">Enter the Name :</label><br>
+                @Html.EditorFor(m => m.Name)<br>
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.Name)
+                </p>
+                <br />
+                <label>Enter the UserName :</label><br>
+                @Html.EditorFor(m => m.UserName)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </p>
+                <br />
+                <label>Enter your city :</label><br>
+                @Html.EditorFor(m => m.Address)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.Address)
+                </p>
+                <br />
+                <label>Enter the Mobile No :</label><br>
+                @Html.EditorFor(m => m.mobileNo)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.mobileNo)
+                </p>
+                <br />
+                <label>Enter the Email:</label><br>
+                @Html.EditorFor(m => m.email)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.email)
+                </p>
+                <br />
+                <label>Create Password :</label><br>
+                @Html.EditorFor(m => m.password)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.password)
+                </p>
+                <br />
+                <label>Retype the Password:</label><br>
+                @Html.EditorFor(m => m.RetypePassword)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.RetypePassword)
+                </p>
+                <br />
+                <button class="btn btn-outline-danger" data-mdb-ripple-color="dark">
+                    Register
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+

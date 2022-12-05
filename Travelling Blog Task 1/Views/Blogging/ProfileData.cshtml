@@ -1,0 +1,24 @@
+﻿@model BlogTask.Models.BlogsTable
+
+@{
+    ViewBag.Title = "ProfileData";
+    ViewBag.Title = "ProfileData";
+    if (Session["UserData"] != null)
+    {
+        ViewBag.ID = (Session["UserData"] as BlogTask.Models.UserTable).UserId;
+        ViewBag.Name = (Session["UserData"] as BlogTask.Models.UserTable).Name;
+        ViewBag.Address = (Session["UserData"] as BlogTask.Models.UserTable).Address;
+        ViewBag.Email = (Session["UserData"] as BlogTask.Models.UserTable).email;
+    }
+}
+
+<h2>ProfileData</h2>
+<div class="container">
+    <div class="row">
+        <h3>User Id : @ViewBag.ID</h3>
+        <h3>Name : @ViewBag.Name</h3>
+        <h3>Address : @ViewBag.Address</h3>
+        <h3>E-mail : @ViewBag.Email</h3>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿@model List<BlogTask.Models.BlogsTable>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            height:500px;
+        }
+
+        .rows {
+            background-color: honeydew;
+            border-radius: 10px;
+            margin: 4px;
+            color:black;
+        }
+        .class{
+            text-align:justify;
+        }
+
+        @*img {
+            border-radius: 7px;
+            height: 180px;
+            width: 200px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+*@
+        
+    </style>
+
+@{
+    ViewBag.Title = "DisplayBlogs";
+    if (Session["UserData"] != null)
+    {
+        ViewBag.Particular = (Session["UserData"] as BlogTask.Models.UserTable).UserId;
+    }
+}
+<div class="Blogs">
+    <h2>Yours Blogs</h2>
+</div>
+<div class="container">
+    @foreach (var blogs in Model)
+    {
+        if (blogs.UId== ViewBag.Particular)
+        {
+            <div class="rows">
+                <h4>Blog ID : @blogs.BlogId</h4>
+                <h4>Blog Title: @blogs.BlogTitle</h4>
+                <img src="@blogs.images"  width="200" height="200"/>
+                <div class="message"><h4><i>@blogs.messages</i></h4></div>
+                <h4>Rating : @blogs.ratings</h4>
+                @Html.ActionLink("Edit Blog", "EditBlogs", new { id = blogs.BlogId }, new { @class = " btn btn-outline-info" })
+                @Html.ActionLink("Remove", "DeleteBlogs", new { id = blogs.BlogId }, new { @class = "btn btn-outline-danger"})
+            </div>
+
+        }
+    }
+</div>

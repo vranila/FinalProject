@@ -1,0 +1,26 @@
+	UserTable--SQL COMMAND
+---------------------------------
+CREATE TABLE [dbo].[UserTable] (
+    [UserId]    INT           IDENTITY (1, 1) NOT NULL,
+    [UserName ] VARCHAR (MAX) NOT NULL,
+    [Name]      VARCHAR (MAX) NOT NULL,
+    [Address]   VARCHAR (MAX) NOT NULL,
+    [mobileNo ] INT           NOT NULL,
+    [email]     VARCHAR (MAX) NOT NULL,
+    [password]  VARCHAR (MAX) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+
+	BlogsTable--SQL COMMAND
+---------------------------------
+CREATE TABLE [dbo].[BlogsTable] (
+    [BlogId]     INT           IDENTITY (1, 1) NOT NULL,
+    [BlogTitle]  VARCHAR (MAX) NOT NULL,
+    [images]     VARCHAR (MAX) NOT NULL,
+    [messages]   VARCHAR (MAX) NOT NULL,
+    [UId]        INT           NOT NULL,
+    [ratings]    INT           NOT NULL,
+    [TravelDate] VARCHAR (50)  NOT NULL,
+    PRIMARY KEY CLUSTERED ([BlogId] ASC),
+    CONSTRAINT [FK_BlogsTable_UserTable] FOREIGN KEY ([UId]) REFERENCES [dbo].[UserTable] ([UserId])
+);

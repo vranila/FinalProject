@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+
+    .heading {
+        text-align: center;
+        color: darkcyan;
+        border-radius: 10px;
+    }
+
+    .tab {
+        text-align: center;
+        margin-left: 40px;
+    }
+
+    .ab {
+        color: darkcyan;
+    }
+
+    .image {
+        width: 50%;
+        height: 60%;
+        margin-left: 25%;
+    }
+</style>
+@if (Request.IsAuthenticated)
+{
+    if (Session["UserData"] != null)
+    {
+        ViewBag.Name = (Session["UserData"] as BlogTask.Models.UserTable).Name;
+        <h1>Current User : @ViewBag.Name</h1>
+    }
+    @Html.ActionLink("Log out", "Logout", null, new { @class = ".bg-info" })
+}
+else
+{
+    <div class="heading">
+        <h1>BLOOMS BLOGGING PAGE</h1>
+    </div>
+
+    <div class="tab">
+
+        @Html.ActionLink("Signup", "Register", null, new { @class = "btn btn-outline-success" })
+
+        @Html.ActionLink("Login", "Login", null, new { @class = "btn btn-outline-success" })
+
+        @Html.ActionLink("Display Blogs", "DisplayAllBlogs","Blogging", new { },new { @class = "btn btn-outline-success " })
+
+    </div>
+    <hr />
+
+
+}
+<div class="image">
+    <img src="~/Assests/back.jpg" />
+</div>
+
+<div class="footer">
+
+    <footer>
+        <h6>2022@CopyRight.Blooms </h6>
+    </footer>
+</div>
+
+
+
+

@@ -1,0 +1,58 @@
+﻿@model BlogTask.DataModels.LoginView
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+ 
+
+    .login  {
+        color: brown;
+    }
+
+    .container {
+        height: 300px;
+        width: 300px;
+        background-color: honeydew;
+        color: brown;
+        border-radius: 20px;
+    }
+</style>
+
+<div class="login">
+    <h2>LOGIN HERE</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-15">
+            @using (Html.BeginForm())
+            {
+                <div style="color:red">
+                    @Html.ValidationSummary()
+                </div>
+                <label class="lb">Enter the User Name:</label><br>
+                @Html.EditorFor(m => m.UserName)<br>
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.UserName)
+                </p>
+                <br />
+                <label>Enter Password :</label><br>
+                @Html.EditorFor(m => m.password)<br />
+                <p style="color:red">
+                    @Html.ValidationMessageFor(m => m.password)
+                </p>
+                <br />
+                <button class="btn btn-outline-danger" data-mdb-ripple-color="dark">
+                    Login
+                </button>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
